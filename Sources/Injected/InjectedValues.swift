@@ -13,8 +13,8 @@ struct InjectedValues {
   /// This is only used as an accessor to the computed properties within extensions of `InjectedValues`.
   private static var current = InjectedValues()
 
-  /// A static subscript for updating the `currentValue` of `InjectionKey` instances.
-  static subscript<K>(key: K.Type) -> K.Value where K : InjectionKey {
+  /// A static subscript for updating the `currentValue` of `InjectedKey` instances.
+  static subscript<K>(key: K.Type) -> K.Value where K : InjectedKey {
     get { key.currentValue }
     set { key.currentValue = newValue }
   }
