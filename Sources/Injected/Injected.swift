@@ -1,6 +1,24 @@
-public struct Injected {
-    public private(set) var text = "Hello, World!"
+//
+//  Injected.swift
+//
+//
+//  Created by Kevin Budain on 30/12/2021.
+//
 
-    public init() {
-    }
+import Foundation
+
+@propertyWrapper
+struct Injected<T> {
+
+  private let keyPath: WritableKeyPath<InjectedValues, T>
+
+  var wrappedValue: T {
+    get { InjectedValues[keyPath] }
+    set { InjectedValues[keyPath] = newValue }
+  }
+
+  init(_ keyPath: WritableKeyPath<InjectedValues, T>) {
+    self.keyPath = keyPath
+  }
+
 }
