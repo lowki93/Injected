@@ -13,6 +13,6 @@ public protocol InjectedKey {
   associatedtype Value
 
   /// The default value for the dependency injection key.
-  static var currentValue: Self.Value { get set }
+  static var currentValue: Self.Value { get }
 
 }
